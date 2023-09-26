@@ -13,6 +13,10 @@
                 </a>
                 <p>Secu JIMI - Osons nous protéger !</p>
         </header>
+        <?php
+        require_once("../private/php/fonctions.php");
+        getNewLink();
+        ?>
         <footer>
                 <p>En cas de problèmes, merci de contacter le support informatique sur <a href="https://jimi.endrix.com" target="_blank">Demande à Jimi</a></p>
         </footer>
