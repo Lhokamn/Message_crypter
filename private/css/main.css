@@ -1,0 +1,22 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+header,footer{
+    background-color: #9E251B;
+}
+
+#Practice{
+    display: flex;
+    justify-content: center;
+    
+}
+
+#Practice>*{
+    margin: auto;
+}
+
+body{
+    text-align: center;
+}
