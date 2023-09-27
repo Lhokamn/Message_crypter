@@ -38,8 +38,6 @@ function createNewLink($text){
         Le lien fait 6 caractères. En prenant l'alphabet minuscules, majuscules et les chiffres, nous avons 62 possibilités
         ce qui fait un total de lien possible à 218 340 105 584 896
     */
-
-    
     $succes = false
     do {
         $link = createRandomLink()

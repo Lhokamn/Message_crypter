@@ -1,6 +1,6 @@
 <?php 
 define('host','localhost');
-define('bd','localhost');
-define('user','admEndrix');
-define('pwd','');
+define('bd','myDatabase');
+define('user','user');
+define('pwd','password');
 ?>
