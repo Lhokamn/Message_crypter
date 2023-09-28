@@ -71,15 +71,17 @@ function createNewLink($text){
         }
     } while (!$succes);
     
-	
+    return $link;
 }
 
-function getNewLink(){
+function getFullLink($link){
 
+    // Préparation de la génération du lien
     $dns=DNS;
     $startLink = "https://$dns/send_passwd/web/recuperer.php?token=";
+
     $mysql=connect();
-    $q='SELECT * FROM Links ORDER BY id DESC LIMIT 1';
+    $q="SELECT * FROM Links WHERE Lien = '$link'";
     $req=$mysql->prepare($q);
     $req->execute();
     $data=$req->fetchAll();
@@ -113,7 +115,6 @@ function getTextBD($token){
     else{
 
         $textChiffre = $data[0]['texte'];
-        echo "Le text caché est : <br>";
         #echo $textChiffre;
         $textDecrypt = decryptString($textChiffre,privatepw);
         echo $textDecrypt;

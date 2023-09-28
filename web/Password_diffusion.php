@@ -18,7 +18,9 @@
                         <textarea rows="6" cols="50">
                         <?php
                                 require_once("../private/php/fonctions.php");
-                                getNewLink();
+                                $text=$_POST['passwdText'];
+                                $link=createNewLink($text);
+                                getFullLink($link);
                         ?> 
                         </textarea>
                         <button id="boutonCopier">Copier</button>

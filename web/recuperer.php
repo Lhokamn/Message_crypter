@@ -14,12 +14,14 @@
                 <p>Protégeons nos mot de passe du crous</p>
         </header>
         <div>
-            <?php
-                require_once("../private/php/fonctions.php");
-                $token = $_GET['token'];
-                getTextBD($token);
-                
-            ?>
+            <p>Votre texte caché est le suivant</p>
+            <textarea>
+                <?php
+                    require_once("../private/php/fonctions.php");
+                    $token = $_GET['token'];
+                    getTextBD($token);  
+                ?>
+            </textarea>
         </div>
         <footer>
         </footer>
