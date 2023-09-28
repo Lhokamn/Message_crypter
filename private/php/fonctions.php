@@ -1,5 +1,5 @@
 <?php
-require_once('pwd.php');
+require_once('config.php');
 
 function connect(){
     # Permet de tester la connexion à une base de donnée
@@ -10,6 +10,22 @@ function connect(){
         die($e->getMessage());
     }
     return $mysql;
+}
+
+function encryptString($data, $password) {
+    $key = openssl_digest($password, 'sha256', true);
+    $iv = openssl_random_pseudo_bytes(16);
+    $cipherText = openssl_encrypt($data, 'aes-256-cbc', $key, OPENSSL_RAW_DATA, $iv);
+    return base64_encode($iv . $cipherText);
+}
+
+function decryptString($data, $password) {
+    $key = openssl_digest($password, 'sha256', true);
+    $data = base64_decode($data);
+    $iv = substr($data, 0, 16);
+    $cipherText = substr($data, 16);
+    $plainText = openssl_decrypt($cipherText, 'aes-256-cbc', $key, OPENSSL_RAW_DATA, $iv);
+    return $plainText;
 }
 
 function createRandomLink(){
@@ -41,12 +57,12 @@ function createNewLink($text){
     $salt = "12345678"; // a changer pour être unique
     
     // PASSWORD_DEFAULT est l'algorithme de hachage basé sur bcrypt
-    $hashText = openssl_encrypt($text,'aes-256-cbc',$salt);
+    $encryptText = encryptString($text,privatepw);
     do {
         $link = createRandomLink();
         try{
             $mysql=connect();
-	        $q="INSERT INTO Links VALUES (NUll,'$link', '$hashText','$salt',0)";
+	        $q="INSERT INTO Links VALUES (NUll,'$link', '$encryptText',0)";
 	        $req=$mysql->prepare($q);
 	        $req->execute();
             $succes = true;
@@ -97,9 +113,10 @@ function getTextBD($token){
     else{
 
         $textChiffre = $data[0]['texte'];
-        $salt = $data[0]['sel'];
         echo "Le text caché est : <br>";
-        echo $textChiffre;
+        #echo $textChiffre;
+        $textDecrypt = decryptString($textChiffre,privatepw);
+        echo $textDecrypt;
 
         // On modifie la base de donnée afin de supprimer le message, et on met le booleen à true
         $mysql=connect();

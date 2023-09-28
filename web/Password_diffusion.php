@@ -21,7 +21,6 @@
                                 getNewLink();
                         ?> 
                         </textarea>
-                        <!-- <button id="boutonCopier" onclick="copierPressePapier()" >Copier</button> -->
                         <button id="boutonCopier">Copier</button>
                         <script src="../private/js/functions.js"></script>
                 </div> 
@@ -29,6 +28,4 @@
         <footer>
         </footer>
 </body>
-
-
 </html>
