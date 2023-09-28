@@ -15,6 +15,18 @@ header,footer{
     background-color: #9E251B;
 }
 
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.wrapper > button {
+    width: 20%;
+    margin-top: 2rem;
+}
+
 #Practice{
     display: flex;
     justify-content: center;

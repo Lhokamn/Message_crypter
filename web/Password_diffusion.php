@@ -4,21 +4,31 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../private/css/main.css">
-        <title>Secu Jimi</title>
+        <title>my passwd</title>
 </head>
 <body>
         <header>
                 <a href="index.html">
-                        <img src="../Assets/icone.png" alt="Logo Endrix">
+                        <img src="../Assets/icone.png" alt="Logo">
                 </a>
-                <p>Secu JIMI - Osons nous protéger !</p>
+                <p>Protégeons nos mot de passe du crous</p>
         </header>
-        <?php
-        require_once("../private/php/fonctions.php");
-        getNewLink();
-        ?>
+        <div id="content">
+                <div id="textACopier" class="wrapper">
+                        <textarea rows="6" cols="50">
+                        <?php
+                                require_once("../private/php/fonctions.php");
+                                getNewLink();
+                        ?> 
+                        </textarea>
+                        <!-- <button id="boutonCopier" onclick="copierPressePapier()" >Copier</button> -->
+                        <button id="boutonCopier">Copier</button>
+                        <script src="../private/js/functions.js"></script>
+                </div> 
+        </div>
         <footer>
-                <p>En cas de problèmes, merci de contacter le support informatique sur <a href="https://jimi.endrix.com" target="_blank">Demande à Jimi</a></p>
         </footer>
 </body>
+
+
 </html>
