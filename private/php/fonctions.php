@@ -108,8 +108,8 @@ function getTextBD($token){
     if (empty($data)){
         header('location:../../web/error_404.html');
     }
-    $isUses = $data[0]['useslink'];
-    if($isUses){
+    $isUses = $data[0]['usesLink'];
+    if($isUses == true){
         echo "Le lien a déjà été utilisés.";
     }
     else{
