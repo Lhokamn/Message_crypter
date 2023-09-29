@@ -27,16 +27,13 @@ header,footer{
     margin-top: 2rem;
 }
 
-#Practice{
+#GoodPractice{
     display: flex;
-    justify-content: center;
+    justify-content: left;
+    text-align: left;
     
 }
 
-#Practice>*{
-    margin: auto;
-}
-
-body{
-    text-align: center;
+ul > *{
+    text-align:left;
 }

@@ -13,7 +13,7 @@ function copierPressePapier() {
 
     //Permet de sélectionnet le bouton
     //let button = document.querySelector('button');
-    let button = document.getElementById('boutonCopier');
+    let button = document.querySelector('button');
 
     //Permet de détecter le click sur le bouton
     button.addEventListener('click', () => {
