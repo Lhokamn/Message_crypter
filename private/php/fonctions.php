@@ -78,7 +78,7 @@ function getFullLink($link){
 
     // Préparation de la génération du lien
     $dns=DNS;
-    $startLink = "https://$dns/send_passwd/web/recuperer.php?token=";
+    $startLink = "$dns/web/recuperer.php?token=";
 
     $mysql=connect();
     $q="SELECT * FROM Links WHERE Lien = '$link'";
