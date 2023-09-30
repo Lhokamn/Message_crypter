@@ -11,7 +11,7 @@
                 <a href="index.html">
                         <img src="../Assets/icone.png" alt="Logo">
                 </a>
-                <p>Protégeons nos mot de passe du crous</p>
+                <p><strong>Protégeons nos mot de passe</strong></p>
         </header>
         <div>
             <p>Votre texte caché est le suivant</p>
@@ -19,7 +19,8 @@
                 <?php
                     require_once("../private/php/fonctions.php");
                     $token = $_GET['token'];
-                    getTextBD($token);  
+                    $text = getTextBD($token);
+                    echo $text; 
                 ?>
             </textarea>
         </div>

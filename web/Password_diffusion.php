@@ -15,7 +15,7 @@
         </header>
         <div id="content">
                 <div id="textACopier" class="wrapper">
-                        <textarea rows="6" cols="50">
+                        <textarea rows="6" cols="50" class="recup">
                         <?php
                                 require_once("../private/php/fonctions.php");
                                 $text=$_POST['passwdText'];

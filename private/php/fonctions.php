@@ -115,17 +115,16 @@ function getTextBD($token){
     else{
 
         $textChiffre = $data[0]['texte'];
-        #echo $textChiffre;
         $textDecrypt = decryptString($textChiffre,privatepw);
-        echo $textDecrypt;
 
         // On modifie la base de donnée afin de supprimer le message, et on met le booleen à true
         $mysql=connect();
-        $q="UPDATE Links SET texte = '', usesLink = 1  WHERE lien = '$token'";
+        $q="UPDATE Links SET texte = '', usesLink = 1  WHERE lien = '$token'"; //
         $req=$mysql->prepare($q);
         $req->execute();
 
     }
+    return $textDecrypt;
 }
 
 

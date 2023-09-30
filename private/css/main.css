@@ -2,17 +2,22 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+body{
+    text-align: center;
+}
+
 header{
     display: flex;
     justify-content: center; 
+    background-color: #922B21 ;
 }
 
 header>*>img {
     width: 125px;
 }
 
-header,footer{
-    background-color: #9E251B;
+h2{
+    text-align: center;
 }
 
 .wrapper{
@@ -27,13 +32,35 @@ header,footer{
     margin-top: 2rem;
 }
 
+#Practice{
+    display: flex;
+    justify-content: left;
+}
+
+#Practice > div{
+    flex: 1;
+    text-align: justify;
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+
+#Security,#good{
+    size: 33% ;
+}
+
 #GoodPractice{
     display: flex;
     justify-content: left;
-    text-align: left;
-    
 }
 
-ul > *{
-    text-align:left;
+.recup{
+    border: none;
+}
+textarea {
+    resize: none;
+    /* text-align: left; */
+}
+
+footer{
+    padding: 5%;
 }
