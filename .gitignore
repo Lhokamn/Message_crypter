@@ -4,6 +4,9 @@
 # doesn't send bdd to github
 database.db
 
+# Doesn't send secret key in github
+secret.key
+
 # doesn't send python flash dependancies in github
 passwd
 __pycache__

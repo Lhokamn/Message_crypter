@@ -25,6 +25,7 @@ my_env_tesy\Scripts\activate
 ```sh
 pip install Flask           # use flask framework
 pip install python-dotenv   # Use .flaskenv and .env files
+pip install cryptography    # use Fernet framework for crytography
 ```
 
 - to run run flask app 
