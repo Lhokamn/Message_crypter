@@ -7,9 +7,9 @@
         <h1>Welcome in Message Crypter</h1>
         <p>This services let you send crypted messages all over the wold</p>
         <div id="sendPasswd">
-            <form class="wrapper" action="web/Password_diffusion.php" method="Post">
-                    <textarea name="passwdText" rows="6" cols="50" placeholder="Enter your password"></textarea>
-                    <input name="passwdButton" type="submit" value="Envoyer">
+            <form class="wrapper" label="text-message" method="Post">
+                    <textarea name="passwdText" rows="6" cols="50" placeholder="Enter your password">{{ request.form['content'] }}</textarea>
+                    <button name="passwdButton" type="submit">Submit</button>
             </form>
             
         </div>

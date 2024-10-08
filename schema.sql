@@ -6,3 +6,6 @@ CREATE TABLE passwdLinks (
     link TEXT UNIQUE NOT NULL,
     secureText TEXT NOT NULL
 );
+
+INSERT INTO passwdLinks (link, secureText) VALUES ("azerty", "Hello my world");
+INSERT INTO passwdLinks (link, secureText) VALUES ("qwerty", "Hello my friend");

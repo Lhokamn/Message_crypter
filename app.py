@@ -6,6 +6,7 @@ from flask import Flask, render_template, request, url_for, flash, redirect
 from werkzeug.exceptions import abort
 from dotenv import load_dotenv
 from cryptography.fernet import Fernet
+from werkzeug.exceptions import abort
 
 # Charger le fichier .env
 load_dotenv()
@@ -101,7 +102,7 @@ def get_db_connection():
         
     finally:
         if connection:
-            connection.close()
+            #connection.close()
             print("Database connection closed.")
             return connection
 
@@ -141,9 +142,22 @@ def get_secure_links(token: str):
 
     # Connection to database
     conn = get_db_connection()
+    try:
 
-    # launch cursor
-    cursor = conn.cursor()
+        post = conn.execute('SELECT * FROM passwdLinks WHERE link = ?',(token,)).fetchone()
+        if post is None:
+            abort(404)
+        
+        print(f"Is connection open? {conn is not None}")
+
+        return post
+        
+
+    finally:
+        conn.close()
+
+    
+    
 
 
 def remove_secure_links(token: string):
@@ -154,6 +168,11 @@ def remove_secure_links(token: string):
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/<token>', methods=['GET','POST'])
+def link_token(token):
+    link = get_secure_links(token)
+    return render_template('token.html', token=link)
 
 @app.route('/about')
 def about():
