@@ -4,5 +4,5 @@ DROP TABLE IF EXISTS passwdLinks;
 CREATE TABLE passwdLinks (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     link TEXT UNIQUE NOT NULL,
-    text TEXT NOT NULL
+    secureText TEXT NOT NULL
 );
