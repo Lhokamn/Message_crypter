@@ -1,5 +1,10 @@
+# doesn't sand env credential in github
 .env 
 
+# doesn't send bdd to github
+database.db
+
+# doesn't send python flash dependancies in github
 passwd
 __pycache__
 .pytest_cache

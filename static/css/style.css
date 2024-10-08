@@ -17,3 +17,13 @@
     padding-left: 0; /* Supprime le padding par défaut */
     margin: 1rem; /* Supprime le margin par défaut */
 }
+
+
+.vertical-hr {
+    width: 1px; /* Réduit la largeur pour en faire une ligne mince */
+    height: 3rem; /* La hauteur définit la longueur de la ligne verticale */
+    background-color: black; /* Définit la couleur de la ligne */
+    border: none; /* Supprime la bordure par défaut de <hr> */
+    margin: 0;
+    margin-left: 1rem;
+}
