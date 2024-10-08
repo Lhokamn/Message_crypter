@@ -120,7 +120,7 @@ def add_secure_links(link,secureText):
         cursor = conn.cursor()
 
         try:
-            cursor.execute("INSERT INTO passwdLinks (link, secureText) VALUES (?, ?)", (link, secureText))
+            conn.execute("INSERT INTO passwdLinks (link, secureText) VALUES (?, ?)", (link, secureText))
         except sqlite3.Error as e:
             raise e
 
@@ -156,20 +156,24 @@ def get_secure_links(token: str):
     finally:
         conn.close()
 
-    
-    
-
-
 def remove_secure_links(token: string):
     conn = get_db_connection()
 
 
 # Function web redirect
-@app.route('/')
+@app.route('/',methods=('GET','POST'))
 def index():
+    if request.method == 'POST':
+        text=request.form['content']
+        print(f,"" + text)
+        if not text:
+            flash("No message enter. Please enter your message")
+        else:
+            new_entry(text)
+            return redirect(url_for('index'))
     return render_template('index.html')
 
-@app.route('/<token>', methods=['GET','POST'])
+@app.route('/<token>')
 def link_token(token):
     link = get_secure_links(token)
     return render_template('token.html', token=link)
