@@ -1,6 +1,19 @@
-h1 {
-    border: 2px #eee solid;
-    color: brown;
-    text-align: center;
-    padding: 10px;
+/* Pour le conteneur de la navbar */
+.navbar {
+    display: flex;
+    justify-content: left; /* Centre les éléments horizontalement */
+    align-items: center; /* Aligne les éléments verticalement */
+}
+
+/* Pour le lien "Accueil" */
+.navbar-brand {
+    font-size: 1.5rem; /* Augmente la taille de la police */
+}
+
+/* Pour le conteneur de la liste de liens */
+.navbar-nav {
+    display: flex; /* Place les liens sur une seule ligne */
+    list-style-type: none; /* Supprime les puces */
+    padding-left: 0; /* Supprime le padding par défaut */
+    margin: 1rem; /* Supprime le margin par défaut */
 }
