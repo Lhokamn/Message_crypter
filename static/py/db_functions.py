@@ -31,12 +31,16 @@ def get_db_connection():
             print("Database connection closed.")
             return connection
 
-def add_secure_links(link,secureText):
+def add_secure_links(link: str,secureText: str):
     '''
-    input : none
+    input : link -> str, secureText -> str
     output : none
-
+    purpose : add an entry in db
     '''
+
+    if link == None or secureText == None:
+        raise ValueError("One or two arguments are missing")
+
     try:
         # Connexion to database
         conn = get_db_connection()
@@ -45,7 +49,8 @@ def add_secure_links(link,secureText):
         cursor = conn.cursor()
 
         try:
-            conn.execute("INSERT INTO passwdLinks (link, secureText) VALUES (?, ?)", (link, secureText))
+            cursor.execute("INSERT INTO passwdLinks (link, secureText) VALUES (?, ?)", (link, secureText))
+            conn.commit()
         except sqlite3.Error as e:
             raise e
 
