@@ -45,6 +45,38 @@ def new_entry(text:str):
 
     return fullLink
 
+def launch():
+    '''
+    input : none
+    output : none
+    purpose : lauch init_db.py and secret.py
+    '''
+
+    print("We are in lauch function")
+    # lauch db sqlite3
+    try:
+        with open('init_db.py') as f:
+            code = f.read()  
+            exec(code)
+    except FileNotFoundError:
+        print("Le fichier n'a pas été trouvé.")
+    except PermissionError:
+        print("Vous n'avez pas la permission de lire ce fichier.")
+    except Exception as e:
+        print(f"Une erreur est survenue : {e}")
+    
+    # lauch secret file for cryting
+    try:
+        with open('secret.py') as f:
+            code = f.read()  
+            exec(code)
+    except FileNotFoundError:
+        print("Le fichier n'a pas été trouvé.")
+    except PermissionError:
+        print("Vous n'avez pas la permission de lire ce fichier.")
+    except Exception as e:
+        print(f"Une erreur est survenue : {e}")
+    
 
 
 # Function web redirect
@@ -78,5 +110,7 @@ def page_not_found(e):
     # note that we set the 404 status explicitly
     return render_template('404.html'), 404
 
+
+launch()
 if __name__ == '__main__':
-    app.run(debug = True)
+    app.run()
