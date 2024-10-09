@@ -12,7 +12,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-app.config['SECRET_KEY']=os.getenv('SECRET_WEB_KEY')
+app.config['SECRET_KEY'] = os.getenv('SECRET_WEB_KEY')
+base_URL = os.getenv('BASE_URL')
 
 # Function app application
 
@@ -28,21 +29,21 @@ def new_random_string_generator():
 def new_entry(text:str):
     '''
     input : text -> str
-    output : randomString -> str
+    output : fullLink -> str
+    
     '''
 
     # Create unique link
     randomString = new_random_string_generator()
 
+    fullLink =   base_URL + randomString
+
     # Secure entry text
     secureText = encrypt_message(text)
 
-
-    print("random string = " + randomString + "\nsecureText = " + str(secureText))
-
     add_secure_links(link=randomString, secureText=secureText)
 
-    return randomString
+    return fullLink
 
 
 
@@ -54,18 +55,16 @@ def index():
         if not text:
             flash("No message enter. Please enter your message")
         else:
-            new_entry(text)
-            return redirect(url_for('index'))
+            fullLink = new_entry(text)
+            return render_template('save.html', fullLink=fullLink)
     return render_template('index.html')
 
 @app.route('/<token>')
 def link_token(token):
     link = get_secure_links(token)
 
-    print ("link = " + link['link'] + "\nsecret message = " + str(link['secureText']))
-
     message = decrypt_message(link['secureText'])
-    print("Message decrypt = " + message)
+
     return render_template('token.html', token=message)
 
 @app.route('/about')
