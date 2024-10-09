@@ -27,6 +27,10 @@ pip install Flask           # use flask framework
 pip install python-dotenv   # Use .flaskenv and .env files
 pip install cryptography    # use Fernet framework for crytography
 ```
+or run ``requirements.txt``:
+```sh
+pip install -r requirements.txt
+```
 
 - to run run flask app 
 ```sh
