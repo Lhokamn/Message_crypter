@@ -2,7 +2,7 @@ import os
 import random
 import string
 from static.py.crypt_function import encrypt_message, decrypt_message
-from static.py.db_functions import get_secure_links
+from static.py.db_functions import get_secure_links, add_secure_links
 from flask import Flask, render_template, request, url_for, flash, redirect
 from dotenv import load_dotenv
 
@@ -12,8 +12,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-app.config['SECRET_WEB_KEY']=os.getenv('SECRET_WEB_KEY')
-app.config['DEBUG_MODE']=os.getenv('DEBUG')
+app.config['SECRET_KEY']=os.getenv('SECRET_WEB_KEY')
 
 # Function app application
 
@@ -38,6 +37,9 @@ def new_entry(text:str):
     # Secure entry text
     secureText = encrypt_message(text)
 
+
+    print("random string = " + randomString + "\nsecureText = " + str(secureText))
+
     add_secure_links(link=randomString, secureText=secureText)
 
     return randomString
@@ -48,8 +50,7 @@ def new_entry(text:str):
 @app.route('/',methods=('GET','POST'))
 def index():
     if request.method == 'POST':
-        text=request.form['content']
-        print(f,"" + text)
+        text = request.form.get('content')
         if not text:
             flash("No message enter. Please enter your message")
         else:
@@ -60,7 +61,12 @@ def index():
 @app.route('/<token>')
 def link_token(token):
     link = get_secure_links(token)
-    return render_template('token.html', token=link)
+
+    print ("link = " + link['link'] + "\nsecret message = " + str(link['secureText']))
+
+    message = decrypt_message(link['secureText'])
+    print("Message decrypt = " + message)
+    return render_template('token.html', token=message)
 
 @app.route('/about')
 def about():
