@@ -104,7 +104,7 @@ def remove_secure_links(link: str):
         cursor = conn.cursor()
 
         try:
-            cursor.execute("'DELETE FROM passwdLinks WHERE link = ?'", (link, ))
+            cursor.execute("DELETE FROM passwdLinks WHERE link = ?", (link, ))
             conn.commit()
         except sqlite3.Error as e:
             raise e
