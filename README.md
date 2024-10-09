@@ -37,3 +37,14 @@ pip install -r requirements.txt
 flask run
 ```
 
+# Run with Docker
+
+first you need to git clone this repository locally. After you need to create docker image:
+```sh
+docker build --tag send-passwd .
+```
+
+After you have to lauch container instance:
+```sh
+docker run -d -p 5000:5000 send-passwd
+```
