@@ -1,29 +1,73 @@
-/* Pour le conteneur de la navbar */
+/**
+ * nav container design
+ *
+ */
+
 .navbar {
     display: flex;
-    justify-content: left; /* Centre les éléments horizontalement */
-    align-items: center; /* Aligne les éléments verticalement */
+    align-items: center; 
+    background-color: #d3d3d3;
 }
 
-/* Pour le lien "Accueil" */
 .navbar-brand {
-    font-size: 1.5rem; /* Augmente la taille de la police */
+    font-size: 1.5rem; 
+
 }
 
-/* Pour le conteneur de la liste de liens */
 .navbar-nav {
-    display: flex; /* Place les liens sur une seule ligne */
-    list-style-type: none; /* Supprime les puces */
-    padding-left: 0; /* Supprime le padding par défaut */
-    margin: 1rem; /* Supprime le margin par défaut */
+    display: flex; 
+    list-style-type: none; 
+    padding-left: 0; 
+    margin: 1rem; 
 }
-
 
 .vertical-hr {
-    width: 1px; /* Réduit la largeur pour en faire une ligne mince */
-    height: 3rem; /* La hauteur définit la longueur de la ligne verticale */
-    background-color: black; /* Définit la couleur de la ligne */
-    border: none; /* Supprime la bordure par défaut de <hr> */
+    width: 1px; 
+    height: 2.5rem;
+    background-color: black;
+    border: none;
     margin: 0;
     margin-left: 1rem;
+}
+
+/**
+ * footer design
+ *
+ */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    background-color: #d3d3d3;
+    padding: 0;
+}
+
+footer *{
+    padding: 0;
+    margin: 0;
+}
+
+#footer-contact {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+}
+
+#footer-contact_url {
+    display: flex;
+    flex-direction: row;
+}
+
+#footer-contact_url a {
+    padding: 1rem;
+}
+
+#footer-link-project {
+    padding-right: 2rem;
+}
+
+footer img {
+    width: 1.5rem;
+    height: auto;
 }
