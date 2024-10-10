@@ -17,8 +17,8 @@ sudo apt install python3-venv
 
 - create a virtual environment source it in git repot
 ```sh
-python3 -m venv my_env_tesy
-my_env_tesy\Scripts\activate
+python3 -m venv venv
+source venv/bin/activate
 ```
 
 - Finally install flask et dotenv python packages
