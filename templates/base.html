@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="robots" content="noindex">
     <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    {% block css %} {% endblock %}
     <link rel="icon" href="https://www.cclaudel.fr/favicon.ico" type="image/x-con" sizes="233x256">
     <title>Message crypter - {% block title %} {% endblock %}</title>
   </head>

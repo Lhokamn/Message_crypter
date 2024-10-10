@@ -1,25 +1,29 @@
 {% extends 'base.html' %}
 
+{% block css %} 
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/index.css') }}">
+{% endblock %}
+
 {% block title %}Sender{% endblock %}
 
 {% block content %}
-    <div id="message-area">
+    <div id="content-message-area">
         <h1>Welcome in Message Crypter</h1>
         <p>This services let you send crypted messages all over the wold</p>
-        <div id="sendPasswd">
+        <div id="content-Message">
             <form class="wrapper" label="text-message" method="POST">
-                    <textarea name="content" rows="6" cols="50" placeholder="Enter your message" class="form-control">{{ request.form['content'] }}</textarea>
-                    <button name="passwdButton" type="submit">Submit</button>
+                    <textarea name="content-content" rows="6" cols="50" placeholder="Enter your message" class="form-control">{{ request.form['content'] }}</textarea>
+                    <button name="content-Button" type="submit">Submit</button>
             </form>
             
         </div>
     </div>
-    <div id="ho-it-works">
-        <div id="Security">
+    <div id="content-ho-it-works">
+        <div class="content-works-item" id="content-Security">
             <h2>Security</h2>
             <p>Message are stored securely in database (crypt). Since your message is reading, it is automaticaly delete from database</p>
         </div>
-        <div id="usage">
+        <div class="content-works-item" id="content-usage">
             <h2>One time message</h2>
             <p>Send sensitive informations with mail, paper, or chat is over. It's preferable to use tools to crypt information until they are read</p>
         </div>
