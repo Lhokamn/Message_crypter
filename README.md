@@ -56,7 +56,9 @@ or with docker-compose
 ```yml
 services:
   message-crypter:
-    image: message-crypter
+    build:
+        context: .
+        dockerfile: Dockerfile
     ports:
       - "8080:8080"
     environment:
