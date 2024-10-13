@@ -1,4 +1,4 @@
-# send_passwd
+# Message crypter
 
 Public repository of Message crypter [https://msg-crypt.cclaudel.fr](https://msg-crypt.cclaudel.fr)
 
