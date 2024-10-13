@@ -19,7 +19,6 @@ def get_db_connection():
     try:
         # Connect to the SQLite database
         connection = sqlite3.connect(DATABASE_URL)
-        print("Database connected successfully!")
         connection.row_factory = sqlite3.Row
 
     except sqlite3.Error as e:
@@ -28,7 +27,6 @@ def get_db_connection():
     finally:
         if connection:
             #connection.close()
-            print("Database connection closed.")
             return connection
 
 def add_secure_links(link: str,secureText: str):
@@ -62,7 +60,6 @@ def add_secure_links(link: str,secureText: str):
             cursor.close()
         if conn:
             conn.close()
-            print("Database connection closed.")
 
 def get_secure_links(token: str):
     '''
@@ -117,5 +114,4 @@ def remove_secure_links(link: str):
             cursor.close()
         if conn:
             conn.close()
-            print("Database connection closed.")
 
