@@ -1,0 +1,25 @@
+#container-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#container-getter {
+    background-color: beige;
+    padding-right: 3%;
+    padding-left: 3%;
+    
+}
+
+#container-getter strong {
+    font-size: large;
+    color: brown;
+}
+
+#container-reminder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

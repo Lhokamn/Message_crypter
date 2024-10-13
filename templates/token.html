@@ -1,7 +1,19 @@
 {% extends 'base.html' %}
 
+{% block css %} 
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/token.css') }}">
+{% endblock %}
+
 {% block content %}
-    <h2>your secure link</h2>
-    <span class="badge badge-primary"></span>
-    <p>{{ token }}</p>
+    <div id="container-content">
+        <h1>your secure link</h1>
+        <span class="badge badge-primary"></span>
+        <div id="container-getter">
+            <p><strong>{{ token }}</strong></p>
+        </div>
+        <div id="container-reminder">
+            <p><strong>This message is temporary, after you close tyour windows, it will be no longer available.</strong></p>
+            <p>Be sure to write it in a secure place. Support like paper, .txt files, word files,etc are not safe for this. If you receive a password, write it on secure database with tools like <a href="https://keepassxc.org/">KeePassXC</a> or <a href="https://bitwarden.com/">Bitwarden</a>. They are free and open source</a></p>
+        </div>
+    </div>
 {% endblock %}
