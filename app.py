@@ -83,7 +83,7 @@ def launch():
 @app.route('/',methods=('GET','POST'))
 def index():
     if request.method == 'POST':
-        text = request.form.get('content')
+        text = request.form.get('content-textarea')
         if not text:
             flash("No message enter. Please enter your message")
         else:
