@@ -1,0 +1,10 @@
+database.db
+
+secret.key
+
+.env
+passwd/*
+
+__pycache__
+
+.flaskenv

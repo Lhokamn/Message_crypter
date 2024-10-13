@@ -5,6 +5,7 @@ from static.py.crypt_function import encrypt_message, decrypt_message
 from static.py.db_functions import get_secure_links, add_secure_links, remove_secure_links
 from flask import Flask, render_template, request, url_for, flash, redirect
 from dotenv import load_dotenv
+from waitress import serve
 
 
 
@@ -113,4 +114,4 @@ def page_not_found(e):
 
 launch()
 if __name__ == '__main__':
-    app.run()
+    serve(app,host='0.0.0.0',port=8080)
