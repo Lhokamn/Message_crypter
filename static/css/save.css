@@ -1,0 +1,40 @@
+/**
+ * container-content design
+ */
+#container-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;;
+    padding-bottom: 3rem;
+}
+
+#container-content > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/**
+ * LinkSengding contaienr design
+ */
+
+#linkSending {
+    width: 30%;
+    border:  2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+/**
+ * button contaienr design
+ */
+
+button {
+    margin-top: 1rem;
+    width: 5rem;
+}
+

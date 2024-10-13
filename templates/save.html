@@ -1,12 +1,19 @@
 {% extends 'base.html' %}
 
+{% block css %} 
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/save.css') }}">
+{% endblock %}
+
 {% block content %}
-    <h2>Your secure Link</h2>
-    <span class="badge badge-primary"></span>
-    <div class="wrapper" id="linkSending">
-        <p><a href="{{ fullLink }}">{{ fullLink }}</a></p>
+
+    <div id="container-content">
+        <h1>Your secure Link</h1>
+        <span class="badge badge-primary"></span>
+        <div class="wrapper" id="linkSending">
+            <p><a href="{{ fullLink }}">{{ fullLink }}</a></p>
+        </div>
+        <button id="copyButton">copy</button>
     </div>
-    <button id="copyButton">copy</button>
     
 {% endblock %}
 
