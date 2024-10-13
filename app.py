@@ -3,7 +3,7 @@ import random
 import string
 from static.py.crypt_function import encrypt_message, decrypt_message
 from static.py.db_functions import get_secure_links, add_secure_links, remove_secure_links
-from flask import Flask, render_template, request, url_for, flash, redirect
+from flask import Flask, render_template, request, flash, send_from_directory
 from dotenv import load_dotenv
 from waitress import serve
 
@@ -94,13 +94,16 @@ def index():
 
 @app.route('/<token>')
 def link_token(token):
-    link = get_secure_links(token)
 
-    message = decrypt_message(link['secureText'])
-
-    remove_secure_links(link['link'])
-
-    return render_template('token.html', token=message)
+    print(token)
+    if token == "robots.txt":
+        return send_from_directory(app.root_path, 'robots.txt')
+    
+    else:
+        link = get_secure_links(token)
+        message = decrypt_message(link['secureText'])
+        remove_secure_links(link['link'])
+        return render_template('token.html', token=message)
 
 @app.route('/about')
 def about():
