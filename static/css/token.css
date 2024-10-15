@@ -1,3 +1,7 @@
+/** 
+ * container-content container design
+ */
+
 #container-content {
     display: flex;
     flex-direction: column;
@@ -5,17 +9,42 @@
     justify-content: center;
 }
 
+/** 
+ * container-getter container design
+ */
+
 #container-getter {
     background-color: beige;
     padding-right: 3%;
     padding-left: 3%;
-    
 }
 
 #container-getter strong {
-    font-size: large;
+    /*font-size: large;*/
     color: brown;
 }
+
+
+/**
+ * container-getter-link container design
+ */
+
+#container-getter-link {
+    font-size: 24px;
+    transition: filter 0.3s ease;
+}
+
+/** 
+ * ButtonBLur container design
+ */
+
+.blurred {
+    filter: blur(5px);
+}
+
+/** 
+ * container-reminder container design
+ */
 
 #container-reminder {
     display: flex;
