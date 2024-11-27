@@ -9,10 +9,31 @@ buttonElement.addEventListener('click', function() {
   // Toggle the 'blurred' class on the text element
   textElement.classList.toggle('blurred');
 
-  // Update the button text based on the current state
-  if (textElement.classList.contains('blurred')) {
-    buttonElement.textContent = 'Unblur Text';
-  } else {
-    buttonElement.textContent = 'Blur Text';
-  }
+  const url = window.location.hostname
+
+  const token = window.location.pathname;
+
+  const urlDelete = `/delete`;
+
+  fetch(urlDelete, {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ token })
+  })
+  .then(response => {
+    if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data.message); // Handle the response from the backend
+    console.log("Token deleted successfully:", data);
+  })
+  .catch(error => {
+    console.error("Error deleting token:", error);
+
+  });
 });
