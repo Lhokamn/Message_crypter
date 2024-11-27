@@ -16,6 +16,8 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_WEB_KEY')
 base_URL = os.getenv('BASE_URL')
 
+print(base_URL)
+
 # Function app application
 
 def new_random_string_generator():
@@ -77,7 +79,6 @@ def launch():
         print("Vous n'avez pas la permission de lire ce fichier.")
     except Exception as e:
         print(f"Une erreur est survenue : {e}")
-    
 
 
 # Function web redirect
@@ -102,12 +103,22 @@ def link_token(token):
     else:
         link = get_secure_links(token)
         message = decrypt_message(link['secureText'])
-        remove_secure_links(link['link'])
+        #remove_secure_links(link['link'])
         return render_template('token.html', token=message)
 
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+@app.route('/delete',methods=('GET','POST'))
+def new_delete_request():
+    request_url = request.get_json()
+    
+    token = request_url.get('token')
+
+    token = token.split("/")[1]
+    print(token)
+    remove_secure_links(token)
 
 @app.errorhandler(404)
 def page_not_found(e):

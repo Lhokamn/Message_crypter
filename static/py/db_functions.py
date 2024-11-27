@@ -84,32 +84,38 @@ def get_secure_links(token: str):
         conn.close()
 
 def remove_secure_links(link: str):
-    '''
+    """
     input : link -> str
     output : none
     purpose : remove an entry in db
-    '''
-
-    if link == None:
-        raise ValueError("One or two arguments are missing")
+    """
+    if not link:
+        raise ValueError("The link argument is missing or None")
+    
+    conn = None
+    cursor = None
     
     try:
-        # Connexion to database
+        # Connection to database
         conn = get_db_connection()
-
-        # launch cursor
         cursor = conn.cursor()
 
-        try:
-            cursor.execute("DELETE FROM passwdLinks WHERE link = ?", (link, ))
-            conn.commit()
-        except sqlite3.Error as e:
-            raise e
+        # Execute DELETE query
+        cursor.execute("DELETE FROM passwdLinks WHERE link = ?", (link,))
+        conn.commit()
+
+        # Check if the deletion was successful
+        if cursor.rowcount == 0:
+            print(f"No matching rows found for link: {link}")
+        else:
+            print(f"Deleted {cursor.rowcount} row(s) for link: {link}")
 
     except sqlite3.Error as e:
-        print(f"An error occurred: {e}")
+        print(f"Database error: {e}")
+        raise e  # Re-raise the exception if needed for logging or debugging
+
     finally:
-        # Fermez le curseur et la connexion
+        # Ensure cursor and connection are properly closed
         if cursor:
             cursor.close()
         if conn:
