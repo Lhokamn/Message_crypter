@@ -49,7 +49,7 @@ docker run -d -p 8080:8080 message-crypter
 ```
 - with env variable
 ```sh
-docker run -d -p 8080:8080 message-crypter -e SECRET_WEB_KEY=<mywebkey> -e DATABASE_URL=<mydbfile.db> -e SECRET_FILE_KEY=<mysecretkey.key> -e BASE_URL=<http://127.0.0.1:5000/> --restart unless-stopped
+docker run -d -p 8080:8080 message-crypter -e SECRET_WEB_KEY=<mywebkey> -e DATABASE_URL=<mydbfile.db> -e SECRET_FILE_KEY=<mysecretkey.key> -e BASE_URL=<http://127.0.0.1:8080/> --restart unless-stopped
 ```
 
 or with docker-compose
@@ -65,6 +65,6 @@ services:
       SECRET_WEB_KEY: <mywebkey>
       DATABASE_URL: <mydbfile.db>
       SECRET_FILE_KEY: <mysecretkey.key>
-      BASE_URL: <http://127.0.0.1:5000/>
+      BASE_URL: <http://127.0.0.1:8080/>
     restart: unless-stopped
 ```
