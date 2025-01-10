@@ -58,7 +58,7 @@ def launch():
     print("We are in lauch function")
     # lauch db sqlite3
     try:
-        with open('init_db.py') as f:
+        with open('static/py/init_db.py') as f:
             code = f.read()  
             exec(code)
     except FileNotFoundError:
@@ -70,7 +70,7 @@ def launch():
     
     # lauch secret file for cryting
     try:
-        with open('secret.py') as f:
+        with open('static/py/secret.py') as f:
             code = f.read()  
             exec(code)
     except FileNotFoundError:
